@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+Oriya:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="calculator">
+        <h2></h2>
+        <div id="outputscreen">
+            <div name="outputscreen" id="output">welcome</div>
+        </div>
+        <div class="input">
+        <div id="upperkey">
+            <input type="button" value="^" id="power" class="special" onclick="special(this.value)">
+            <input type="button" value="root" id="root" class="special" onclick="special(this.value)">
+            <input type="button" value="ln(x)" id="log" class="special" onclick="special(this.value)">
+            <input type="button" value="back" id="log" class="special" onclick="special(this.value)">
+
+        </div>
+            <div id="operator">
+                <input type="button" value="c" id="reset">
+                <input type="button" value="-" id="minus" onclick="operator(this.value)">
+                <input type="button" value="+" id="sum" onclick="operator(this.value)">
+                <input type="button" value="*" id="multiply"  onclick="operator(this.value)">
+                <input type="button" value="/" id="divide"    onclick="operator(this.value)">
+                <input type="button" value="sin"  class ="special" onclick="special(this.value)">
+                <input type="button" value="cos"  class ="special" onclick="special(this.value)">
+                <input type="button" value="tan"  class ="special" onclick="special(this.value)">
+                <input type="button" value="=" id="equals">
+
+            </div>
+            <div class="keypad">
+                <input type="button" value="1" id="1" onclick="input_value(this.value)">
+                <input type="button" value="2" id="2" onclick="input_value(this.value)">
+                <input type="button" value="3" id="3" onclick="input_value(this.value)">
+                <input type="button" value="4" id="4" onclick="input_value(this.value)">
+                <input type="button" value="5" id="5" onclick="input_value(this.value)">
+                <input type="button" value="6" id="6" onclick="input_value(this.value)">
+                <input type="button" value="7" id="7"  onclick="input_value(this.value)">
+                <input type="button" value="8" id="8"  onclick="input_value(this.value)">
+                <input type="button" value="9" id="9"  onclick="input_value(this.value)">
+                <input type="button" value="0" id="zero"  onclick="input_value(this.value)">
+                <input type="button" value="00" id="dzero"  onclick="input_value(this.value)">
+                <input type="button" value="." id="point"  onclick="input_value(this.value)">
+
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
