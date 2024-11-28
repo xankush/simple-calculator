@@ -189,6 +189,7 @@ function special(t) {
         case "tan":
             if (a != "") {
                 mem.innerHTML="tan"+a;
+
                 a = Math.tan(a);
             }
             p.innerHTML = a;
@@ -202,14 +203,17 @@ function special(t) {
             break;
         case "root":
             if (a != "") {
+                mem.innerHTML="sqrt("+a+")";
                 a = Math.sqrt(a);
             }
             p.innerHTML = a;
             break;
         case "ln(x)":
             if (a != "") {
+                mem.innerHTML="ln("+a+")";
                 a = Math.log(a);
             }
+
             p.innerHTML = a;
             break;
         case "back":
