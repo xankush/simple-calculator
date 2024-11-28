@@ -31,11 +31,13 @@ equal.addEventListener("click", function () {
 });
 
 function input_value(m) {
-    if (a == "") {
+    if (a === "") {
+        console.log("hi again");
         a = parseFloat(m);
+        console.log(a);
         p.innerHTML = a;
         mem.innerHTML=a;
-        console.log(mem);
+        // console.log(mem);
     }
     else if (sign == "") {
         if (m == ".") {
@@ -58,12 +60,12 @@ function input_value(m) {
                 a = parseFloat(a + m);
                 p.innerHTML = a;
                 mem.innerHTML = a;
-                console.log(mem);
+                // console.log(mem);
             }
         }
 
     }
-    else if (b == "") {
+    else if (b === "") {
         b = parseFloat(m);
         p.innerHTML += b;
         mem.innerHTML += b;
@@ -105,11 +107,13 @@ function operator(s) {
     }
     else {
         if (b != "") {
+            
+            
+            mem.innerHTML += s;
             a = calculation();
             sign = s;
-            mem.innerHTML = a+s;
             b = "";
-            p.innerHTML = a + s;
+            p.innerHTML = "";
             console.log("a = " + a);
             console.log("b =" + b);
             console.log("sign =" + sign);
@@ -192,7 +196,8 @@ function special(t) {
         case "^":
             if (a != "") {
                 sign = t;
-                p.innerHTML = a+"^";
+                p.innerHTML = "";
+                mem.innerHTML = a+"^";
             }
             break;
         case "root":
@@ -208,23 +213,35 @@ function special(t) {
             p.innerHTML = a;
             break;
         case "back":
-            if(a==""){
+            if(a===""){
                 p.innerHTML="";
             }
             else if(a!=""&&sign==""&&b==""){
                 a=a.toString();
-                a=parseFloat(a.slice(0,-1));
+                if(a.length ==1){
+                a=0;
+                p.innerHTML="";
+                    console.log(a);
+                }
+                else{
+                    console.log(a);
+                    a=parseFloat(a.slice(0,-1));
+                }
+                console.log(a); 
                 p.innerHTML=a;
+                mem.innerHTML=a;
             }
             else if(b==""&&sign!=""&&a!=""){
                 console.log("done");
                 sign ="";
                 p.innerHTML=a;
+                mem.innerHTML =a;
             }
             else{
                 b=b.toString();
                 b=b.slice(0,-1);
                 p.innerHTML=a+sign+b;
+                mem.innerHTML=a+sign+b;
             }
             break;
     }
