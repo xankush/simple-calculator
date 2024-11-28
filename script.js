@@ -3,12 +3,14 @@ var b = "";
 var c = "";
 var sign = "";
 
+var mem = document.getElementById("memory");
 var equal = document.getElementById("equals");
 var p = document.getElementById("output");
 var reset = document.getElementById("reset");
 var decimaladded = false;
 reset.addEventListener("click", function () {
     p.innerHTML = "";
+    mem.innerHTML="";
     a = "";
     b = "";
     sign = "";
@@ -23,6 +25,7 @@ equal.addEventListener("click", function () {
     c = calculation();
     a = c;
     b = "";
+    mem.innerHTML+="="
     p.innerHTML = c;
     decimaladded = false;
 });
@@ -31,6 +34,8 @@ function input_value(m) {
     if (a == "") {
         a = parseFloat(m);
         p.innerHTML = a;
+        mem.innerHTML=a;
+        console.log(mem);
     }
     else if (sign == "") {
         if (m == ".") {
@@ -44,6 +49,7 @@ function input_value(m) {
             if (decimaladded == true) {
                 a = parseFloat(a + "." + m);
                 p.innerHTML = a;
+                mem.innerHTML = a;
                 decimaladded = false;
 
             }
@@ -51,6 +57,8 @@ function input_value(m) {
 
                 a = parseFloat(a + m);
                 p.innerHTML = a;
+                mem.innerHTML = a;
+                console.log(mem);
             }
         }
 
@@ -58,21 +66,28 @@ function input_value(m) {
     else if (b == "") {
         b = parseFloat(m);
         p.innerHTML += b;
+        mem.innerHTML += b;
     }
     else {
         if (m == ".") {
             decimaladded = true;
             p.innerHTML += ".";
+            mem.innerHTML += ".";
+
         }
         else {
             if (decimaladded == true) {
                 b = parseFloat(b + "." + m);
-                p.innerHTML += m
+                p.innerHTML += m;
+                mem.innerHTML += m;
+                
                 decimaladded = false;
             }
             else {
                 b = parseFloat(b + m);
+                
                 p.innerHTML += m;
+                mem.innerHTML += m;
             }
         }
     }
@@ -84,13 +99,15 @@ function input_value(m) {
 function operator(s) {
     if (sign == "" && a != "") {
         sign = s;
-        p.innerHTML += sign;
+        p.innerHTML = "";
+        mem.innerHTML = a+sign;
         console.log(sign);
     }
     else {
         if (b != "") {
             a = calculation();
             sign = s;
+            mem.innerHTML = a+s;
             b = "";
             p.innerHTML = a + s;
             console.log("a = " + a);
@@ -153,18 +170,21 @@ function special(t) {
     switch (t) {
         case "sin":
             if (a != "") {
+                mem.innerHTML = "sin"+a;
                 a = Math.sin(a);
             }
             p.innerHTML = a;
             break;
-        case "cos":
-            if (a != "") {
+            case "cos":
+                if (a != "") {
+                mem.innerHTML = "cos"+a;
                 a = Math.cos(a);
             }
             p.innerHTML = a;
             break;
         case "tan":
             if (a != "") {
+                mem.innerHTML="tan"+a;
                 a = Math.tan(a);
             }
             p.innerHTML = a;
@@ -172,7 +192,7 @@ function special(t) {
         case "^":
             if (a != "") {
                 sign = t;
-                p.innerHTML = "";
+                p.innerHTML = a+"^";
             }
             break;
         case "root":

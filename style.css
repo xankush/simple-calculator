@@ -154,8 +154,8 @@ input{
   background-color: #2f3137;
 }
 #reset{
-  background-color: #48555e;
-  color: #77848e;
+  background-color: #1991ff;
+  color: #ececec;
 }
 #equals{
   border-radius: 4px 4px 4px 4px;
@@ -173,4 +173,13 @@ border-radius: 4px 4px 4px 4px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   column-gap: 5px;
+}
+h2{
+  text-align: right;
+  font-size: small;
+  padding: 0;
+  color:rgb(169 170 173);
+  position:relative;
+  top: 15px;
+
 }
