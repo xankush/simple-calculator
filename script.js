@@ -302,7 +302,8 @@ p.addEventListener("keydown", () => {
             b = b.toString();
             b = b + event.key;
             b = parseFloat(b);
-            mem.innerHTML = a + sign + b;
+            console.log("mistake is here");
+            mem.innerHTML +=event.key;
         }
     }
     // if you press operators * + - /
