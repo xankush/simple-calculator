@@ -8,6 +8,9 @@ var equal = document.getElementById("equals");
 var p = document.getElementById("output");
 var reset = document.getElementById("reset");
 var decimaladded = false;
+
+equal.addEventListener("click", out);
+
 reset.addEventListener("click", function () {
     p.innerHTML = "";
     mem.innerHTML = "";
@@ -21,7 +24,6 @@ reset.addEventListener("click", function () {
 
 })
 
-equal.addEventListener("click", out);
 
 function out() {
     console.log("this is sum function ");
@@ -35,157 +37,11 @@ function out() {
     b = "";
     mem.innerHTML += "=";
     console.log("a=" + a);
-    
+
     p.innerHTML = c;
     decimaladded = false;
 }
 
-p.addEventListener("keydown", () => {
-    console.log(event.key);
-    // if(event.key=="*"||"/"||"-"||"+"){
-    //     if(a!=""){
-    //         sign  = event.key;
-    //     }
-    //     mem.innerHTML+=sign;
-    
-    // }
-    if(event.key == "1" || event.key == "2"||event.key == "3"||event.key == "4"||event.key == "5"||event.key == "6"||event.key == "7"||event.key == "8"||event.key == "9"||event.key == "0" ){
-        console.log("this is a number");
-        if(a===""){
-            console.log("this is a");
-            a=parseFloat(event.key);
-            console.log(a);
-            mem.innerHTML+=a;
-        }
-        else if(a!=""&&sign ===""){
-            console.log("a is not empty");
-            a=a.toString();
-            a=a+event.key;
-            a=parseFloat(a);
-            mem.innerHTML=a;
-
-        }
-        else if(b===""){
-            b=parseFloat(event.key);
-            console.log(b);
-            mem.innerHTML+=b;
-        }
-        else{
-            b=b.toString();
-            b=b+event.key;
-            b=parseFloat(b);
-            mem.innerHTML=a+sign+b;
-        }
-    }
-    // if you press operators * + - /
-    switch(event.key){
-        case "+":
-            if(a!=""&&b===""){
-                if(sign ===""){
-
-                    sign = "+";
-                    mem.innerHTML +=sign;
-                }
-                else{
-                    sign = "+";
-                    mem.innerHTML = a+sign;
-                }
-            }
-            if(b!=""){
-                console.log("hi");
-                    a=calculation();
-                    sign="+";
-                    b="";
-                    // p.innerHTML=a+sign;
-                    mem.innerHTML+=sign;
-            }
-            break;
-        case "-":
-            if(a!=""&&b===""){
-                if(sign ===""){
-
-                    sign = "-";
-                    mem.innerHTML +=sign;
-                }
-                else{
-                    sign = "-";
-                    mem.innerHTML = a+sign;
-                }
-            }
-            if(b!=""){
-                console.log("hi");
-                    a=calculation();
-                    sign="-";
-                    b="";
-                    // p.innerHTML=a+sign;
-                    mem.innerHTML+=sign;
-            }
-            break;
-        case "*":
-            if(a!=""&&b===""){
-                if(sign ===""){
-
-                    sign = "*";
-                    mem.innerHTML +=sign;
-                }
-                else{
-                    sign = "*";
-                    mem.innerHTML = a+sign;
-                }
-            }
-            if(b!=""){
-                console.log("hi");
-                    a=calculation();
-                    sign="*";
-                    b="";
-                    // p.innerHTML=a+sign;
-                    mem.innerHTML+=sign;
-            }
-            break;
-        case "/":
-            if(a!=""&&b===""){
-                if(sign ===""){
-
-                    sign = "/";
-                    mem.innerHTML +=sign;
-                }
-                else{
-                    sign = "/";
-                    mem.innerHTML = a+sign;
-                }
-            }
-            if(b!=""){
-                console.log("hi");
-                    a=calculation();
-                    sign="/";
-                    b="";
-                    // p.innerHTML=a+sign;
-                    mem.innerHTML+=sign;
-            }
-            break;
-      
-    }
-    console.log(sign);
-    if (event.key == "Enter") {
-        console.log("this is enter");
-        out();
-       
-    
-    }
-    // console.log("sign="+sign);
-
-    // if(a==""){
-    //     a= event.key;
-    //     a=parseFloat(a);
-
-    // }
-    // else if(a!=""&&sign==""){
-    //     a=a.toString();
-    //     a=parseFloat(a+event.key);
-    // }
-    // else 
-
-})
 function input_value(m) {
     if (a === "") {
         console.log("hi again");
@@ -266,8 +122,8 @@ function operator(s) {
 
 
             mem.innerHTML += s;
-           a= calculation();
-        
+            a = calculation();
+
             sign = s;
             b = "";
             p.innerHTML = "";
@@ -289,10 +145,10 @@ function calculation() {
     console.log("sign=" + sign);
     switch (sign) {
         case "+":
-            console.log("a="+a);
-            console.log("b="+b);
+            console.log("a=" + a);
+            console.log("b=" + b);
             c = a + b;
-            console.log("c="+c);
+            console.log("c=" + c);
             sign = "";
             break;
         case "*":
@@ -364,7 +220,7 @@ function special(t) {
             break;
         case "root":
             if (a != "") {
-                mem.innerHTML = "sqrt(" + a + ")";
+                 mem.innerHTML = "sqrt(" + a + ")";
                 a = Math.sqrt(a);
             }
             p.innerHTML = a;
@@ -411,3 +267,138 @@ function special(t) {
             break;
     }
 }
+
+p.addEventListener("keydown", () => {
+    console.log(event.key);
+    // if(event.key=="*"||"/"||"-"||"+"){
+    //     if(a!=""){
+    //         sign  = event.key;
+    //     }
+    //     mem.innerHTML+=sign;
+
+    // }
+    if (event.key == "1" || event.key == "2" || event.key == "3" || event.key == "4" || event.key == "5" || event.key == "6" || event.key == "7" || event.key == "8" || event.key == "9" || event.key == "0") {
+        console.log("this is a number");
+        if (a === "") {
+            console.log("this is a");
+            a = parseFloat(event.key);
+            console.log(a);
+            mem.innerHTML += a;
+        }
+        else if (a != "" && sign === "") {
+            console.log("a is not empty");
+            a = a.toString();
+            a = a + event.key;
+            a = parseFloat(a);
+            mem.innerHTML = a;
+
+        }
+        else if (b === "") {
+            b = parseFloat(event.key);
+            console.log(b);
+            mem.innerHTML += b;
+        }
+        else {
+            b = b.toString();
+            b = b + event.key;
+            b = parseFloat(b);
+            mem.innerHTML = a + sign + b;
+        }
+    }
+    // if you press operators * + - /
+    switch (event.key) {
+        case "+":
+            if (a != "" && b === "") {
+                if (sign === "") {
+
+                    sign = "+";
+                    mem.innerHTML += sign;
+                }
+                else {
+                    sign = "+";
+                    mem.innerHTML = a + sign;
+                }
+            }
+            if (b != "") {
+                console.log("hi");
+                a = calculation();
+                sign = "+";
+                b = "";
+                // p.innerHTML=a+sign;
+                mem.innerHTML += sign;
+            }
+            break;
+        case "-":
+            if (a != "" && b === "") {
+                if (sign === "") {
+
+                    sign = "-";
+                    mem.innerHTML += sign;
+                }
+                else {
+                    sign = "-";
+                    mem.innerHTML = a + sign;
+                }
+            }
+            if (b != "") {
+                console.log("hi");
+                a = calculation();
+                sign = "-";
+                b = "";
+                // p.innerHTML=a+sign;
+                mem.innerHTML += sign;
+            }
+            break;
+        case "*":
+            if (a != "" && b === "") {
+                if (sign === "") {
+
+                    sign = "*";
+                    mem.innerHTML += sign;
+                }
+                else {
+                    sign = "*";
+                    mem.innerHTML = a + sign;
+                }
+            }
+            if (b != "") {
+                console.log("hi");
+                a = calculation();
+                sign = "*";
+                b = "";
+                // p.innerHTML=a+sign;
+                mem.innerHTML += sign;
+            }
+            break;
+        case "/":
+            if (a != "" && b === "") {
+                if (sign === "") {
+
+                    sign = "/";
+                    mem.innerHTML += sign;
+                }
+                else {
+                    sign = "/";
+                    mem.innerHTML = a + sign;
+                }
+            }
+            if (b != "") {
+                console.log("hi");
+                a = calculation();
+                sign = "/";
+                b = "";
+                // p.innerHTML=a+sign;
+                mem.innerHTML += sign;
+            }
+            break;
+
+    }
+    console.log(sign);
+    if (event.key == "Enter") {
+        console.log("this is enter");
+        out();
+
+
+    }
+
+})
