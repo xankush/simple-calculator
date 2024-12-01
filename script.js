@@ -77,6 +77,7 @@ p.addEventListener("keydown", () => {
             mem.innerHTML=a+sign+b;
         }
     }
+    // if you press operators * + - /
     switch(event.key){
         case "+":
             if(a!=""&&b===""){
@@ -94,26 +95,72 @@ p.addEventListener("keydown", () => {
                 console.log("hi");
                     a=calculation();
                     sign="+";
+                    b="";
                     // p.innerHTML=a+sign;
                     mem.innerHTML+=sign;
             }
             break;
         case "-":
-            if(a!=""){
-                sign = "-";
-                mem.innerHTML +=sign;
+            if(a!=""&&b===""){
+                if(sign ===""){
+
+                    sign = "-";
+                    mem.innerHTML +=sign;
+                }
+                else{
+                    sign = "-";
+                    mem.innerHTML = a+sign;
+                }
+            }
+            if(b!=""){
+                console.log("hi");
+                    a=calculation();
+                    sign="-";
+                    b="";
+                    // p.innerHTML=a+sign;
+                    mem.innerHTML+=sign;
             }
             break;
         case "*":
-            if(a!=""){
-                sign = "*";
-                mem.innerHTML +=sign;
+            if(a!=""&&b===""){
+                if(sign ===""){
+
+                    sign = "*";
+                    mem.innerHTML +=sign;
+                }
+                else{
+                    sign = "*";
+                    mem.innerHTML = a+sign;
+                }
+            }
+            if(b!=""){
+                console.log("hi");
+                    a=calculation();
+                    sign="*";
+                    b="";
+                    // p.innerHTML=a+sign;
+                    mem.innerHTML+=sign;
             }
             break;
         case "/":
-            if(a!=""){
-                sign = "/";
-                mem.innerHTML +=sign;
+            if(a!=""&&b===""){
+                if(sign ===""){
+
+                    sign = "/";
+                    mem.innerHTML +=sign;
+                }
+                else{
+                    sign = "/";
+                    mem.innerHTML = a+sign;
+                }
+            }
+            if(b!=""){
+                console.log("hi");
+                    a=calculation();
+                    sign="/";
+                    b="";
+                    // p.innerHTML=a+sign;
+                    mem.innerHTML+=sign;
             }
             break;
       
